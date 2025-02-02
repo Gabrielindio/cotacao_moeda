@@ -1,11 +1,54 @@
-Este código realiza a coleta de cotações diárias de várias moedas (USD, EUR, GBP, etc.) contra o Real Brasileiro (BRL) utilizando a API AwesomeAPI e processa esses dados com a biblioteca pandas para análise. O fluxo do código pode ser resumido da seguinte forma:
+# Dashboard Interativo de Cotações de Moedas no Power BI
 
-Definição das Moedas para Análise: Uma lista de pares de moedas é definida, como USD-BRL, EUR-BRL, entre outras.
-Definição do Período de Coleta: O código define um intervalo de datas para coletar as cotações, começando em 1º de janeiro de 2022 até o dia anterior à data atual.
-Coleta de Dados: Utilizando a biblioteca requests, é feita uma requisição para a API para obter as cotações diárias de cada moeda. O retorno é um JSON com dados como o valor de fechamento, alta, baixa e o timestamp da data.
-Tratamento dos Dados:
-Conversão de Dados: Os valores de fechamento, alta e baixa são convertidos para o formato numérico com duas casas decimais.
-Extração de Componentes da Data: O código extrai o ano, o nome do mês (em português), o número do mês e o dia da data para cada cotação.
-Conversão para DataFrame: Os dados são organizados em um DataFrame do pandas, sendo removidos duplicados por "Data" e "Moeda".
-Integração com Power BI: O DataFrame gerado pode ser exportado para análise no Power BI. Para isso, você pode gerar relatórios e dashboards visualizando as variações de fechamento de moedas ao longo do tempo. O Power BI pode utilizar as colunas como "Ano", "Mês", "Data", "Fechamento", "Alta" e "Baixa" para criar gráficos e cálculos, como o crescimento ou queda das moedas em períodos mensais.
-O tratamento de dados no Python inclui a formatação de números, a transformação de timestamps em datas legíveis e a extração de partes específicas dessas datas para análise mais detalhada, facilitando a visualização e comparação de cotações no Power BI.
+## Descrição do Projeto
+Este projeto visa a coleta de cotações diárias de diversas moedas em relação ao real (BRL) por meio da API "AwesomeAPI" e a criação de um dashboard interativo no Power BI para visualização dos dados.
+
+## Funcionalidades
+- Coleta automática de dados de cotação de até 19 moedas.
+- Conversão de timestamps para datas legíveis.
+- Formatação dos valores para padrão brasileiro.
+- Extração de informações temporais (Ano, Mês, Nome do Mês e Dia).
+- Exportação dos dados para o Power BI para análise e visualização interativa.
+
+## Tecnologias Utilizadas
+- **Linguagem:** Python 3
+- **Bibliotecas:**
+  - `requests` para requisição de dados via API
+  - `pandas` para manipulação de dados
+  - `datetime` para manipulação de datas
+  - `locale` para formatação de datas no padrão PT-BR
+  - `matplotlib` (embora não usada diretamente no código atual, pode ser útil para visualização local)
+- **API Utilizada:** AwesomeAPI (https://docs.awesomeapi.com.br/)
+- **Ferramenta de Visualização:** Power BI
+
+## Estrutura do Código
+1. **Definição das moedas para análise**
+2. **Configuração do período de coleta**
+3. **Requisição de dados para cada moeda**
+4. **Processamento e formatação dos dados**
+5. **Criação do DataFrame final para análise**
+6. **Exportação para uso no Power BI**
+
+## Como Executar o Projeto
+1. **Instalar as dependências:**
+   ```sh
+   pip install requests pandas matplotlib
+   ```
+2. **Executar o script Python:**
+   ```sh
+   python coletar_cotacoes.py
+   ```
+3. **Exportar o DataFrame para CSV ou Excel para carregamento no Power BI:**
+   ```python
+   df.to_csv('cotacoes_moedas.csv', index=False, encoding='utf-8')
+   ```
+4. **Carregar os dados no Power BI e construir os dashboards.**
+
+## Melhorias Futuras
+- Automatização da coleta de dados diária.
+- Implementação de armazenamento em banco de dados.
+- Integração direta do Python com o Power BI via API.
+
+## Autor
+[Seu Nome]
+
