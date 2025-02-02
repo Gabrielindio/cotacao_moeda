@@ -49,6 +49,3 @@ Este projeto visa a coleta de cotações diárias de diversas moedas em relaçã
 - Implementação de armazenamento em banco de dados.
 - Integração direta do Python com o Power BI via API.
 
-## Autor
-[Seu Nome]
-
